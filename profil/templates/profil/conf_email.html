@@ -1,0 +1,9 @@
+{% autoescape off %}
+Comfirmation de la création de votre compte !!!
+
+Bonjour cher(e) {{name}}
+
+Confirmez la création de votre compte. clickez sur le lien en dessous:
+
+lien: https//{{domain}}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

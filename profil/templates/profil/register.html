@@ -1,0 +1,74 @@
+{% extends "profil/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1 class="display-4">Inscription</h1>
+<p class="lead font-italic">Veuillez remplir le formulaire ci-dessous.</p>
+<hr class="my-4">
+
+<a href="{% url 'home' %}" class="btn btn-secondary btn-block col-md-8 offset-md-2">
+    <i class="fa-solid fa-home"></i> Accueil
+</a><br><br>
+
+<center>
+
+{% for message in messages %}
+
+{{message}}
+
+{% endfor %}
+
+</center>
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    
+    <div class="col-md-8 offset-md-2 mt-5">
+
+        <label for="text">Nom: </label><span style="color: red;">*</span>
+        <input class="form-control" type="text" name="nom" id="nom" 
+        placeholder="Saisir votre nom" required><br>
+
+        <label for="text">Prénom: </label><span style="color: red;">*</span>
+        <input class="form-control" type="text" name="prenom" id="prenom" 
+        placeholder="Saisir votre prenom" required><br>
+
+        <label for="text">Profession</label><span style="color: red;">*</span>
+        <input class="form-control" type="text" name="profession" id="profession" 
+        placeholder="Saisir votre profession" required><br>
+
+        <label for="text">Genre</label><span style="color: red;">*</span>
+        <input class="form-control" type="text" name="genre" id="genre" 
+        placeholder="Saisir votre genre" required><br>
+
+        <label for="username">Nom d'utilisateur</label><span style="color: red;">*</span>
+        <input class="form-control" type="text" name="username" id="username" 
+        placeholder="Saisir votre nom d'utilisateur" required><br>
+
+        <label for="email">Email: </label><span style="color: red;">*</span>
+        <input class="form-control" type="email" name="email" id="email" 
+        placeholder="Saisir votre email" required><br>
+
+        <label for="password">Mot de passe: </label><span style="color: red;">*</span>
+        <input class="form-control" type="password" name="password" id="password" 
+        placeholder="Saisir votre mot de passe" required><br>
+
+
+        <label for="password1">Confirmation mot de passe: </label><span style="color: red;">*</span>
+        <input class="form-control" type="password" name="password1" id="password1" 
+        placeholder="Confirmer votre mot de passe" required><br>
+
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-circle-plus"></i> S'inscrire
+            </button>
+        </div>
+        <div><br>
+
+    </div>
+
+</form>
+
+{% endblock %}

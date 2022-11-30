@@ -1,0 +1,55 @@
+{% extends "profil/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1 class="display-4">Authentification</h1>
+<p class="lead font-italic">Veuillez saisir votre compte et votre mot de passe.</p>
+<hr class="my-4">
+
+<a href="{% url 'home' %}" class="btn btn-secondary btn-block col-md-8 offset-md-2">
+    <i class="fa-solid fa-home"></i> Accueil
+</a><br><br>
+
+<center>
+
+{% for message in messages %}
+
+{{message}}
+
+{% endfor %}
+
+</center>
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    
+    <div class="col-md-8 offset-md-2 mt-5">
+
+        <label for="username">Nom d'utilisateur: </label>
+        <input class="form-control" type="text" name="username" id="username" 
+        placeholder="Saisir votre compte ou email" required><br>
+
+        <label for="password">Mot de passe: </label>
+        <input class="form-control" type="password" name="password" id="password" 
+        placeholder="Saisir votre mot de passe" required><br>
+
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-database"></i> Se connecter
+            </button>
+        </div>
+
+        <div class="col-md-4">
+            <a href="{% url 'register' %}">
+                Mot de passe oublié ?
+            </a>
+        </div>
+        <div><br>
+
+    </div>
+
+
+</form>
+{% endblock content %}
